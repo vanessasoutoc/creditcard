@@ -1,0 +1,43 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: uvicorn src.main:app --host 0.0.0.0 --reload
+    volumes:
+      - .:/src
+    ports:
+      - 8008:8000
+    environment:
+      - DATABASE_URL=mongodb+srv://creditcard:creditcard@localhost:27017/creditcard
+    depends_on:
+      - mongodb
+    networks:
+      - creditcard
+
+  mongodb:
+    image: mongo:4.0.8
+    container_name: mongodb
+    restart: unless-stopped
+    command: mongod --auth
+    ports:
+     - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: creditcard
+      MONGO_INITDB_ROOT_PASSWORD: creditcard
+      MONGO_INITDB_DATABASE: creditcard
+      MONGODB_DATA_DIR: /data/db
+      MONDODB_LOG_DIR: /dev/null
+    volumes:
+      - mongodbdata:/data/db
+    networks:
+      - creditcard
+
+volumes:
+  mongodbdata:
+
+networks:
+  creditcard:
+    driver: bridge
