@@ -10,7 +10,7 @@ def healt_check():
         'health':'ok'
     }
 
-app = FastAPI(title='CreditCardApi')
+app = FastAPI(title='CreditCardApi', swagger_ui_parameters={"syntaxHighlight": False})
 route.include_router(v1_creditcard_router, prefix='/v1')
 app.include_router(route)
 
