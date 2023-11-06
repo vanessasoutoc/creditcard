@@ -5,6 +5,7 @@ version: '3.8'
 services:
   nginx:
     image: nginx:1.17
+    container_name: nginx
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
@@ -12,31 +13,39 @@ services:
     depends_on:
       - api
       - frontend
+    networks:
+      - creditcard
 
   api:
     build:
       context: api
       dockerfile: Dockerfile
     command: python main.py
+    container_name: api
     volumes:
       - ./api/src/:/src
     ports:
       - 8008:8008
     environment:
-      - DATABASE_URL=mongodb+srv://creditcard:creditcard@localhost:27017/creditcard
+      - DATABASE_URL=mongodb://creditcard:creditcard@mongodb:27017
     depends_on:
       - mongodb
+    networks:
+      - creditcard
 
   frontend:
     build:
       context: frontend
       dockerfile: Dockerfile
     stdin_open: true
+    container_name: frontend
     volumes:
       - './frontend:/app:cached'
       - './frontend/node_modules:/app/node_modules:cached'
     environment:
       - NODE_ENV=development
+    networks:
+      - creditcard
 
   mongodb:
     image: mongo:4.0.8
@@ -46,13 +55,19 @@ services:
     ports:
      - "27017:27017"
     environment:
+      MONGO_INITDB_DATABASE: creditcard
       MONGO_INITDB_ROOT_USERNAME: creditcard
       MONGO_INITDB_ROOT_PASSWORD: creditcard
-      MONGO_INITDB_DATABASE: creditcard
       MONGODB_DATA_DIR: /data/db
       MONDODB_LOG_DIR: /dev/null
     volumes:
       - mongodbdata:/data/db
+    networks:
+      - creditcard
 
 volumes:
   mongodbdata:
+
+networks:
+  creditcard:
+    driver: bridge
