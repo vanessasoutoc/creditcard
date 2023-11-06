@@ -23,6 +23,6 @@ def list() -> list[CreditCardSerializer]:
 def create(credit_card: CreditCardSerializer) -> CreditCardSerializer:
     try:
         creditcard = creditcard_service.save(credit_card)
-        return [CreditCardSerializer(**card.to_mongo()) for card in creditcard]
+        return CreditCardSerializer(**creditcard.to_mongo())
     except Exception as error:
         raise HTTPException(status_code=422, detail=str('Error %s' % (error)))

@@ -3,10 +3,10 @@ from .document import CreditCard
 from .utils import validate_exp_date, brand_card, exp_date_format
 
 class CreditCardService:
-    def list() -> []:
-        return CreditCard.objects()
+    def list(self) -> []:
+        return list[CreditCard.objects()]
 
-    def save(credit_card: CreditCardSerializer):
+    def save(self, credit_card: CreditCardSerializer):
         validate_exp_date(credit_card.exp_date)
         brand = brand_card(credit_card.number)
         card = CreditCard(
