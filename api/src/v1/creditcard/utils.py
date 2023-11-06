@@ -5,9 +5,6 @@ from creditcard.exceptions import BrandNotFound
 import re
 
 class Utils:
-    #def __init__(self, number: str):
-    #    self.number = number
-
     def is_valid_card(number: str):
         return CreditCard(number).is_valid()
 
