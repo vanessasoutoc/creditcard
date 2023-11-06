@@ -24,3 +24,24 @@ class Utils:
             raise ValueError('exp_date not valid')
         return True
 
+    def exp_date_format_mongo():
+        return [
+            {
+                "$match": {
+                    "exp_date": {"$date": _exp_date},
+                }
+            },
+            {
+                "$project": {
+                    "array": True,
+                    "exp_date": {
+                         "$dateToString": {
+                             "format": "%Y-%m-%d",
+                             "date": "$exp_date"
+                         }
+                     },
+                     "field1": 1,
+                }
+            }
+        ]
+

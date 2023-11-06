@@ -1,9 +1,8 @@
-from pydantic import BaseModel, Field, field_validator, ValidationError, PydanticUserError
-import uuid
+from pydantic import BaseModel, Field
 
 class CreditCardModel(BaseModel):
-    id: str = Field(default_factory=uuid.uuid4, alias="_id")
-    exp_date: str = Field(...)
+    id: str = Field(None, alias="_id")
+    exp_date: object = Field(...)
     holder: str = Field(...)
     number: str = Field(...)
     cvv: str = Field(...)
