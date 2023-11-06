@@ -1,7 +1,4 @@
 import json
-from pydantic import ValidationError
-from pymongo.errors import DuplicateKeyError
-from mongoengine import NotUniqueError
 from fastapi import APIRouter
 from .models import CreditCardModel
 from .document import CreditCard
