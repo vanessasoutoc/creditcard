@@ -1,11 +1,20 @@
-from pydantic import BaseModel, Field
+from typing import Optional, Any, Union, List
+from pydantic import BaseModel, Field, validator
+from datetime import datetime
 
-class CreditCardModel(BaseModel):
-    id: str = Field(None, alias="_id")
-    exp_date: object = Field(...)
+class CreditCardSerializer(BaseModel):
+    id: Optional[str] = Field(alias="_id")
+    exp_date: Any = Field(...)
     holder: str = Field(...)
     number: str = Field(...)
     cvv: str = Field(...)
+
+    @validator("exp_date")
+    def sync_exp_date(cls, value):
+        if isinstance(value, datetime):
+            return datetime.strftime(value, "%m/%Y")
+        return value
+
     class Config:
         json_schema_extra = {
             "example": {
