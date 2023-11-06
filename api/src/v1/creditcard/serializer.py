@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field, validator
 from datetime import datetime
 
 class CreditCardSerializer(BaseModel):
-    id: Optional[str] = Field(alias="_id")
+    id: Optional[str] = Field(None, alias="_id")
     exp_date: Any = Field(...)
     holder: str = Field(...)
     number: str = Field(...)
