@@ -5,6 +5,8 @@ from datetime import datetime
 class CreditCardSerializer(BaseModel):
     id: Optional[str] = Field(None, alias="_id")
     exp_date: Any = Field(...)
+    credit_card: Optional[str] = Field(None)
+    key: Optional[str] = Field(None)
     holder: str = Field(...)
     number: str = Field(...)
     cvv: str = Field(...)
