@@ -4,7 +4,7 @@ from .utils import validate_exp_date, brand_card, exp_date_format
 
 class CreditCardService:
     def list(self) -> []:
-        return list[CreditCard.objects()]
+        return list(CreditCard.objects())
 
     def save(self, credit_card: CreditCardSerializer):
         validate_exp_date(credit_card.exp_date)
