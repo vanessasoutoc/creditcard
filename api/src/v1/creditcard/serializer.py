@@ -1,5 +1,5 @@
 from typing import Optional, Any, Union, List
-from pydantic import BaseModel, Field, validator, model_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 from datetime import datetime
 from .cryptografy import decode
 from .utils import matching_credit_card_number
@@ -12,7 +12,7 @@ class CreditCardSerializer(BaseModel):
     number: str = Field(...)
     cvv: str = Field(...)
 
-    @validator('exp_date')
+    @field_validator('exp_date')
     def sync_exp_date(cls, value):
         if isinstance(value, datetime):
             return datetime.strftime(value, "%m/%Y")
