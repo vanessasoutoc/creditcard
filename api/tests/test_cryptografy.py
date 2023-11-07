@@ -3,7 +3,6 @@ from src.v1.creditcard.cryptografy import encode, decode
 
 def test_encode_success():
     result = encode('4111111111111111')
-    print(result)
     assert result
 
 def test_decode_success():
