@@ -1,5 +1,12 @@
 import pytest
-from src.v1.creditcard.utils import is_valid_card, brand_card, exp_date_format, validate_exp_date
+from src.v1.creditcard.utils import (
+    is_valid_card,
+    brand_card,
+    exp_date_format,
+    validate_exp_date,
+    matching_credit_card_number
+)
+
 from creditcard.exceptions import BrandNotFound
 
 def test_is_valid_card_success():
@@ -31,3 +38,7 @@ def test_validate_exp_date_error():
     with pytest.raises(ValueError) as excinfo:
         validate_exp_date('02-2024')
     assert str(excinfo.value) == "exp_date not valid"
+
+def test_matching_credit_card_number():
+    result = matching_credit_card_number('4111111111111111')
+    assert result == '4111 **** **** 1111'
