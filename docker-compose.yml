@@ -20,10 +20,10 @@ services:
     build:
       context: api
       dockerfile: Dockerfile
-    command: python main.py
+    command: python src/main.py
     container_name: api
     volumes:
-      - ./api/src/:/src
+      - ./api/:/api
     ports:
       - 8008:8008
     environment:

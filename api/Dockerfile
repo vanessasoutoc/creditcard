@@ -4,7 +4,7 @@
 FROM python:3.11.1-slim
 
 # set work directory
-WORKDIR /src
+WORKDIR /api
 
 
 # install dependencies

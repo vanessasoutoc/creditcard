@@ -1,5 +1,5 @@
 import pytest
-from .utils import is_valid_card, brand_card, exp_date_format, validate_exp_date
+from src.v1.creditcard.utils import is_valid_card, brand_card, exp_date_format, validate_exp_date
 from creditcard.exceptions import BrandNotFound
 
 def test_is_valid_card_success():
