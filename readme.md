@@ -17,11 +17,16 @@ Utilize [Docker](https://www.docker.com/get-started/) para rodar as aplicações
 
 Desenvolvido em [React](https://www.typescriptlang.org/pt/docs/handbook/react.html) e [Typescript](https://www.typescriptlang.org/)
 
+Acesso em [http://localhost:8000](http://localhost:8000)
+
 
 ## Backend (api)
 
 Desenvolvido em Python, utilizando o framework [FastApi](https://fastapi.tiangolo.com/)
 
+Acesso em [http://localhost:8008/](http://localhost:8008/)
+
+Documentação [http://localhost:8008/docs](http://localhost:8008/docs)
 
 ### Run Test
 
@@ -31,4 +36,4 @@ Start docker with commnad:
 
 And run test with command:
 
-`$ docker-compose exec web pytest .`
+`$ docker-compose exec api pytest .`
