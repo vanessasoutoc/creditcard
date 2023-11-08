@@ -3,6 +3,7 @@ from pydantic import BaseModel, Field, field_validator, model_validator
 from datetime import datetime
 from .cryptografy import decode
 from .utils import matching_credit_card_number
+from .document import CreditCard
 
 class CreditCardSerializer(BaseModel):
     id: Optional[str] = Field(None, alias="_id")
@@ -19,9 +20,13 @@ class CreditCardSerializer(BaseModel):
         return value
 
     @model_validator(mode='before')
-    def number_match(cls, m: 'CreditCardSerializer'):
-        m['number'] = matching_credit_card_number(decode(m['number'], m['key']))
-        return m
+    def number_match(self):
+        try:
+            if(self['key']):
+                self['number'] = matching_credit_card_number(decode(self['number'], self['key']))
+                return self
+        except:
+            return self
 
     class ConfigDict:
         json_schema_extra = {
