@@ -1,6 +1,6 @@
 import { type ReportHandler } from 'web-vitals'
 
-const reportWebVitals = (onPerfEntry?: ReportHandler): any => {
+const reportWebVitals = (onPerfEntry?: ReportHandler): void => {
   if (onPerfEntry == null) {
     return
   }
