@@ -1,15 +1,29 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import * as ReactDOM from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
-import App from './App'
+import CreditCards from './pages/credit-cards/CreditCards'
+// import App from './App'
 import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 )
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <h1>Hello world!</h1>
+  },
+  {
+    path: '/credit-cards',
+    element: <CreditCards />
+  }
+])
+
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 )
 
