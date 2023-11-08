@@ -2,7 +2,7 @@ import React from 'react'
 import * as ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
-import { Home } from './pages'
+import CreditCards from './pages/credit-cards/CreditCards'
 // import App from './App'
 import reportWebVitals from './reportWebVitals'
 
@@ -16,8 +16,8 @@ const router = createBrowserRouter([
     element: <h1>Hello world!</h1>
   },
   {
-    path: '/home',
-    element: <Home />
+    path: '/creditcards',
+    element: <CreditCards />
   }
 ])
 
