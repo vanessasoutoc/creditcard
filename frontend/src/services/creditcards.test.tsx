@@ -1,3 +1,4 @@
+import { ResolveFnOutput } from 'module';
 import { list, CreditCard, save } from './creditcards';
 
 const mock_list_credit_card = [
@@ -20,9 +21,9 @@ const mock_list_credit_card = [
 ]
 
 const mock_fetch = (mock: CreditCard | CreditCard[]) => {
-  global.fetch = jest.fn(() =>
+  global.fetch = jest.fn((): Promise<any> =>
       Promise.resolve({
-        json: () => Promise.resolve(mock)
+        json: ():Promise<CreditCard | CreditCard[]> => Promise.resolve(mock)
       })
     )
 }
