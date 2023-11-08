@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     element: <h1>Hello world!</h1>
   },
   {
-    path: '/creditcards',
+    path: '/credit-cards',
     element: <CreditCards />
   }
 ])

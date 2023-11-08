@@ -21,5 +21,8 @@
         {
             "files": ["src/**/*.{ts,tsx}"]
         }
-    ]
+    ],
+    "rules": {
+        "@typescript-eslint/restrict-plus-operands": ["error", { "checkCompoundAssignments": true }]
+    }
 }
