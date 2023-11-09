@@ -1,10 +1,25 @@
-import React from 'react'
+import { Grid } from '@mui/material'
+import React, { useEffect, useState } from 'react'
+import { type CreditCard, list } from '../../services/creditcards'
+import PanelCreditCard from '../../components/panel-credit-card/PanelCreditCard'
 
 const CreditCards = (): React.ReactElement => {
+  const [creditCards, setCreditCards] = useState<CreditCard[]>([])
+
+  const getCreditCards = async (): Promise<void> => {
+    const data = await list()
+    console.log(data)
+    setCreditCards(data)
+  }
+
+  useEffect(() => {
+    getCreditCards().catch(error => { console.error(error) })
+  }, [])
+
   return (
-    <div className="CreditCards">
-      <h1>Lista de Cartões de Crédito</h1>
-    </div>
+    <Grid container justifyContent={'center'} margin={2} xs={12}>
+        {creditCards.map((creditCard: CreditCard, i) => (<PanelCreditCard key={i} creditCard={creditCard} index={i} />))}
+    </Grid>
   )
 }
 
