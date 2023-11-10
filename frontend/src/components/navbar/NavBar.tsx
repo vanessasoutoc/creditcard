@@ -1,19 +1,19 @@
 import * as React from 'react'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import Menu from '@mui/material/Menu'
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Avatar,
+  Button,
+  Tooltip,
+  MenuItem
+} from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
-import Container from '@mui/material/Container'
-import Avatar from '@mui/material/Avatar'
-import Button from '@mui/material/Button'
-import Tooltip from '@mui/material/Tooltip'
-import MenuItem from '@mui/material/MenuItem'
-import AdbIcon from '@mui/icons-material/Adb'
 import { useNavigate } from 'react-router-dom'
-// import { useEffect } from 'react'
 
 const pages = [{ name: 'Cartões', link: '/credit-cards' }]
 const settings = ['Em desenvolvimento']
@@ -41,7 +41,7 @@ const NavBar = (): React.ReactElement => {
   }
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ backgroundColor: '#ededed' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -98,7 +98,6 @@ const NavBar = (): React.ReactElement => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -115,14 +114,14 @@ const NavBar = (): React.ReactElement => {
               textDecoration: 'none'
             }}
           >
-            LOGO
+            <img width={55} className='logo' src={require('../../assets/imgs/logo.png')}/>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page, i) => (
               <Button
                 key={i}
                 onClick={(): void => { handleCloseNavMenu(page.link) }}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, display: 'block' }}
               >
                 {page.name}
               </Button>
@@ -153,7 +152,7 @@ const NavBar = (): React.ReactElement => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center" color={'#584696'}>{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>

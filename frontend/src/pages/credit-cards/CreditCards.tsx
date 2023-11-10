@@ -17,8 +17,8 @@ const CreditCards = (): React.ReactElement => {
   }, [])
 
   return (
-    <Grid container justifyContent={'center'} margin={2} xs={12}>
-        {creditCards.map((creditCard: CreditCard, i) => (<PanelCreditCard key={i} creditCard={creditCard} index={i} />))}
+    <Grid container justifyContent={'center'} margin={2}>
+        {creditCards.map((creditCard: CreditCard, i) => (<PanelCreditCard key={i} creditCard={creditCard} />))}
     </Grid>
   )
 }
