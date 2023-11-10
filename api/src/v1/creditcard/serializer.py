@@ -15,7 +15,7 @@ class CreditCardSerializer(BaseModel):
     @field_validator('exp_date')
     def sync_exp_date(cls, value):
         if isinstance(value, datetime):
-            return datetime.strftime(value, "%m/%Y")
+            return datetime.strftime(value, "%m/%y")
         return value
 
     @model_validator(mode='before')
