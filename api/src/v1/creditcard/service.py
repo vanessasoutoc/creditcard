@@ -14,7 +14,6 @@ class CreditCardService:
         card = CreditCard(
             exp_date=exp_date_format(credit_card.exp_date),
             number=encrypted_values['credit_card'],
-            key=encrypted_values['key'],
             holder=credit_card.holder,
             cvv=credit_card.cvv,
             brand=brand

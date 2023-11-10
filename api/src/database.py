@@ -5,7 +5,7 @@ class MongoClient():
     def __init__(self):
         self.connection = connect(
                 "creditcard",
-                host='mongodb://creditcard:creditcard@localhost:27017',
+                host='mongodb://creditcard:creditcard@mongodb:27017',
                 uuidRepresentation='standard',
             )
 
