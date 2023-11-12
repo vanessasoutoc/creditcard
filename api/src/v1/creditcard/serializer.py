@@ -4,8 +4,27 @@ from datetime import datetime
 from .cryptografy import decode
 from .utils import matching_credit_card_number
 
-class CreditCardSerializer(BaseModel):
+class CreditCardRequestSerializer(BaseModel):
     id: Optional[str] = Field(None, alias="_id")
+    exp_date: Any = Field(...)
+    holder: str = Field(...)
+    number: str = Field(...)
+    cvv: str = Field(...)
+    brand: Optional[str] = Field(None)
+
+    class ConfigDict:
+        json_schema_extra = {
+            'example': {
+                'exp_date': '12/2023',
+                'holder': 'Armindo Juvenal Soares',
+                'number': '4111111111111111',
+                'cvv': '100',
+                'brand': 'visa'
+            }
+        }
+
+class CreditCardResponseSerializer(BaseModel):
+    id: Optional[str] = Field(..., alias='_id')
     exp_date: Any = Field(...)
     holder: str = Field(...)
     number: str = Field(...)
@@ -20,19 +39,6 @@ class CreditCardSerializer(BaseModel):
 
     @model_validator(mode='before')
     def number_match(cls, m):
-        print(len(m['number']))
-        if(len(m['number']) > 16):
-            m['number'] = matching_credit_card_number(decode(m['number']))
-            return m
+        decode_card = decode(m['number'])
+        m['number'] = matching_credit_card_number(decode_card)
         return m
-
-    class ConfigDict:
-        json_schema_extra = {
-            'example': {
-                'exp_date': '12/2023',
-                'holder': 'Armindo Juvenal Soares',
-                'number': '4111111111111111',
-                'cvv': '100',
-                'brand': 'visa'
-            }
-        }

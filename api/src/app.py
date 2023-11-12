@@ -1,9 +1,8 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, APIRouter
-# import uvicorn
 
-from database import MongoClient
-from v1.creditcard.router import router as v1_creditcard_router
+from src.database import MongoClient
+from src.v1.creditcard.router import router as v1_creditcard_router
 from fastapi.middleware.cors import CORSMiddleware
 
 

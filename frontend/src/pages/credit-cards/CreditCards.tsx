@@ -8,7 +8,6 @@ const CreditCards = (): React.ReactElement => {
 
   const getCreditCards = async (): Promise<void> => {
     const data = await list()
-    console.log(data)
     setCreditCards(data)
   }
 
