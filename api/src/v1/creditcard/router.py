@@ -28,3 +28,16 @@ def create(credit_card: CreditCardRequestSerializer):
         return CreditCardResponseSerializer(**creditcard.to_mongo())
     except Exception as error:
         raise HTTPException(status_code=422, detail=str('Error %s' % (error)))
+
+@router.get(
+    path='/{id}',
+    description='Detalhes do cartão de crédito',
+    status_code=200,
+    response_model=CreditCardResponseSerializer
+    )
+def detail(id: str):
+    try:
+        creditcard = creditcard_service.detail(id)
+        return CreditCardResponseSerializer(**creditcard.to_mongo())
+    except Exception as error:
+        raise HTTPException(status_code=422, detail=str('Error %s' % (error)))

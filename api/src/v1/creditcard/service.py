@@ -19,3 +19,6 @@ class CreditCardService:
             )
         card.save()
         return card
+
+    def detail(self, id: str)->CreditCardResponseSerializer:
+        return CreditCard.objects.get(id=id)
