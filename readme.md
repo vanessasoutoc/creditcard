@@ -36,4 +36,4 @@ Start docker with commnad:
 
 And run test with command:
 
-`$ docker-compose exec api pytest .`
+`$ docker-compose exec api pytest --cov=src .`

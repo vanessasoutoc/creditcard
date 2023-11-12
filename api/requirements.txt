@@ -6,6 +6,7 @@ pydantic-settings==2.0.3
 pydantic_core==2.10.1
 fastapi_versioning==0.10.0
 pytest==7.4.3
+pytest-cov==4.1.0
 httpx==0.23.1
 python-creditcard @ git+https://github.com/maistodos/python-creditcard.git@6b6bcc5d975985337c35e5c1a4f87d861bcac731
 mongoengine==0.27.0
