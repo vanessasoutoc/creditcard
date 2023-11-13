@@ -5,7 +5,15 @@ from .cryptografy import decode
 from .utils import matching_credit_card_number
 
 class CreditCardRequestSerializer(BaseModel):
-    id: Optional[str] = Field(None, alias="_id")
+    exp_date: Any = Field(...)
+    holder: str = Field(...)
+    number: str = Field(...)
+    cvv: str = Field(...)
+    brand: Optional[str] = Field(None)
+
+
+class CreditCardResponseSerializer(BaseModel):
+    id: Optional[str] = Field(None, alias='_id')
     exp_date: Any = Field(...)
     holder: str = Field(...)
     number: str = Field(...)
@@ -22,14 +30,6 @@ class CreditCardRequestSerializer(BaseModel):
                 'brand': 'visa'
             }
         }
-
-class CreditCardResponseSerializer(BaseModel):
-    id: Optional[str] = Field(..., alias='_id')
-    exp_date: Any = Field(...)
-    holder: str = Field(...)
-    number: str = Field(...)
-    cvv: str = Field(...)
-    brand: Optional[str] = Field(None)
 
     @field_validator('exp_date')
     def sync_exp_date(cls, value):
