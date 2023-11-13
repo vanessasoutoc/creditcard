@@ -6,7 +6,7 @@ import DetailCreditCard from '../detail-credit-card/DetailCreditCard'
 const PanelCreditCard: React.FunctionComponent<{ creditCard: CreditCard }> = ({ creditCard }) => (
   <Grid item margin={1} xs={12} sm={4} md={4} lg={3} xl={2}>
     <Card sx={{ maxWidth: 340 }}>
-      <DetailCreditCard creditCard={creditCard} />
+      <DetailCreditCard key="detail-credit-card" creditCard={creditCard} />
       <CardActions style={{ justifyContent: 'end' }} >
         <Button size="small">Ver detalhes</Button>
       </CardActions>

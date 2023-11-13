@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import { type CreditCard, list } from '../../services/creditcards'
-import PanelCreditCard from '../../components/panel-credit-card/PanelCreditCard'
+import { type CreditCard, list } from '../../../services/creditcards'
+import PanelCreditCard from '../../../components/panel-credit-card/PanelCreditCard'
 
 const CreditCards = (): React.ReactElement => {
   const [creditCards, setCreditCards] = useState<CreditCard[]>([])
