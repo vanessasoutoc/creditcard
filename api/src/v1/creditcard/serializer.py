@@ -1,5 +1,5 @@
 from typing import Optional, Any
-from pydantic import BaseModel, Field, ValidationError, field_validator, model_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 from datetime import datetime
 
 from .document import CreditCard
@@ -32,7 +32,7 @@ class CreditCardRequestSerializer(BaseModel):
                 card_decode = decode(card['number'])
                 if(card_decode == value):
                     raise ValueError(f'number {value} exists')
-                return value
+        return value
 
 class CreditCardResponseSerializer(BaseModel):
     id: Optional[str] = Field(None, alias='_id')
