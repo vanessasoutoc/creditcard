@@ -2,9 +2,10 @@ import React from 'react'
 import { type CreditCard } from '../../services/creditcards'
 import './detail-credit-card.css'
 import { Typography } from '@mui/material'
+import { Brand } from './brand.enum'
 
 const DetailCreditCard: React.FunctionComponent<{ creditCard: CreditCard }> = ({ creditCard }) => (
-  <div className={`credit-card selectable ${creditCard.brand}`}>
+  <div className={`credit-card selectable ${Brand[creditCard.brand]}`}>
     <div className='inline'>
       <div className="credit-card-last4">
         {creditCard.number}
