@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { type CreditCard, list } from '../../../services/creditcards'
 import PanelCreditCard from '../../../components/panel-credit-card/PanelCreditCard'
 
-const CreditCards = (): React.ReactElement => {
+const List = (): React.ReactElement => {
   const [creditCards, setCreditCards] = useState<CreditCard[]>([])
 
   const getCreditCards = async (): Promise<void> => {
@@ -22,4 +22,4 @@ const CreditCards = (): React.ReactElement => {
   )
 }
 
-export default CreditCards
+export default List

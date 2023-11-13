@@ -5,7 +5,7 @@ import PanelCreditCard from '../../../components/panel-credit-card/PanelCreditCa
 import { useParams } from 'react-router-dom'
 import AlertWarning from '../../../components/alert-warning/AlertWarning'
 
-const CreditCardDetail = (): React.ReactElement => {
+const Detail = (): React.ReactElement => {
   const { creditCardId } = useParams()
   const [creditCard, setCreditCard] = useState<CreditCard>()
 
@@ -30,4 +30,4 @@ const CreditCardDetail = (): React.ReactElement => {
   )
 }
 
-export default CreditCardDetail
+export default Detail

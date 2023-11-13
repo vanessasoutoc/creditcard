@@ -1,9 +1,9 @@
 import { Routes, Route, Outlet, Link } from 'react-router-dom'
-import CreditCards from './pages/credit-cards/list/CreditCards'
+import List from './pages/credit-cards/list/List'
 import NavBar from './components/navbar/NavBar'
 import React from 'react'
 import { Box } from '@mui/material'
-import CreditCardDetail from './pages/credit-cards/details/CreditCardDetail'
+import Detail from './pages/credit-cards/detail/Detail'
 
 const App = (): React.ReactElement => {
   return (
@@ -12,8 +12,8 @@ const App = (): React.ReactElement => {
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
           <Route path='/credit-cards'>
-            <Route path='' element={<CreditCards />} />
-            <Route path=':creditCardId' element={<CreditCardDetail />} />
+            <Route path='' element={<List />} />
+            <Route path=':creditCardId' element={<Detail />} />
           </Route>
           <Route path='*' element={<NoMatch />} />
         </Route>
