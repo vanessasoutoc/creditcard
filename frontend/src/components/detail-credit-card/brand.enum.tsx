@@ -1,4 +1,4 @@
-type tplotOptions = Record<string, unknown>
+type tplotOptions = Record<string, string>
 
 export const Brand: tplotOptions = {
   master: 'mastercard',

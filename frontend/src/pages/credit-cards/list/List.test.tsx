@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { CreditCard } from '../../../services/creditcards'
+import { type CreditCard } from '../../../services/creditcards'
 import { MemoryRouter } from 'react-router-dom'
 import App from '../../../App'
 
@@ -12,12 +12,12 @@ const mockFetch = (mock: CreditCard[] | []): void => {
 }
 
 const mockCreditCard = [{
-  '_id': '65512d158e4db1ec45e8d620',
-  'exp_date': '01/24',
-  'holder': 'Renata B Barra',
-  'number': '4111 **** **** 1112',
-  'cvv': '234',
-  'brand': 'visa'
+  _id: '65512d158e4db1ec45e8d620',
+  exp_date: '01/24',
+  holder: 'Renata B Barra',
+  number: '4111 **** **** 1112',
+  cvv: '234',
+  brand: 'visa'
 }]
 
 const fakeNotFound = {
@@ -25,10 +25,10 @@ const fakeNotFound = {
 }
 
 describe('list', () => {
-  it('should be list credit card', async() => {
+  it('should be list credit card', async () => {
     mockFetch(mockCreditCard)
     render(
-      <MemoryRouter initialEntries={[`/credit-cards`]}>
+      <MemoryRouter initialEntries={['/credit-cards']}>
         <App />
       </MemoryRouter>
     )
