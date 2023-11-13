@@ -1,6 +1,8 @@
 from typing import Optional, Any
 from pydantic import BaseModel, Field, ValidationError, field_validator, model_validator
 from datetime import datetime
+
+from .document import CreditCard
 from .cryptografy import decode
 from .utils import matching_credit_card_number
 
@@ -11,6 +13,15 @@ class CreditCardRequestSerializer(BaseModel):
     cvv: str = Field(...)
     brand: Optional[str] = Field(None)
 
+    @field_validator('number')
+    def number(cls, value):
+        creditcardsSaved = CreditCard.objects()
+        if len(creditcardsSaved) > 0:
+            for card in creditcardsSaved:
+                card_decode = decode(card['number'])
+                if(card_decode == value):
+                    raise ValueError(f'number {value} exists')
+                return value
 
 class CreditCardResponseSerializer(BaseModel):
     id: Optional[str] = Field(None, alias='_id')
