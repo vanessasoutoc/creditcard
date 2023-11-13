@@ -8,7 +8,7 @@ const PanelCreditCard: React.FunctionComponent<{ creditCard: CreditCard }> = ({ 
     <Card sx={{ maxWidth: 340 }}>
       <DetailCreditCard key="detail-credit-card" creditCard={creditCard} />
       <CardActions style={{ justifyContent: 'end' }} >
-        <Button size="small">Ver detalhes</Button>
+        <Button size="small" href={`/credit-cards/${creditCard._id}`}>Ver detalhes</Button>
       </CardActions>
     </Card>
   </Grid>

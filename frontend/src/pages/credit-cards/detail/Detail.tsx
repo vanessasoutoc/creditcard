@@ -1,4 +1,3 @@
-import { Grid } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { type CreditCard, detail } from '../../../services/creditcards'
 import PanelCreditCard from '../../../components/panel-credit-card/PanelCreditCard'
@@ -22,11 +21,11 @@ const Detail = (): React.ReactElement => {
   }, [])
 
   return (
-    <Grid container justifyContent={'center'} margin={2}>
+    <>
       {(creditCard !== null && creditCard !== undefined && creditCard.detail === undefined)
         ? <PanelCreditCard creditCard={creditCard} />
         : <AlertWarning detail="Cartão não encontrado." />}
-    </Grid>
+    </>
   )
 }
 

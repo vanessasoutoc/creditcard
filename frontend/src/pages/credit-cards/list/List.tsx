@@ -1,4 +1,3 @@
-import { Grid } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { type CreditCard, list } from '../../../services/creditcards'
 import PanelCreditCard from '../../../components/panel-credit-card/PanelCreditCard'
@@ -16,9 +15,9 @@ const List = (): React.ReactElement => {
   }, [])
 
   return (
-    <Grid container justifyContent={'center'} margin={2}>
-        {creditCards.map((creditCard: CreditCard, i) => (<PanelCreditCard key={i} creditCard={creditCard} />))}
-    </Grid>
+    <>
+      {creditCards.map((creditCard: CreditCard, i) => (<PanelCreditCard key={i} creditCard={creditCard} />))}
+    </>
   )
 }
 

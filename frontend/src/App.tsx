@@ -1,8 +1,8 @@
-import { Routes, Route, Outlet, Link } from 'react-router-dom'
+import { Routes, Route, Outlet, Link, Navigate } from 'react-router-dom'
 import List from './pages/credit-cards/list/List'
 import NavBar from './components/navbar/NavBar'
 import React from 'react'
-import { Box } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 import Detail from './pages/credit-cards/detail/Detail'
 
 const App = (): React.ReactElement => {
@@ -10,7 +10,7 @@ const App = (): React.ReactElement => {
     <div>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route index element={<Navigate to="/credit-cards" />}/>
           <Route path='/credit-cards'>
             <Route path='' element={<List />} />
             <Route path=':creditCardId' element={<Detail />} />
@@ -24,31 +24,25 @@ const App = (): React.ReactElement => {
 
 const Layout = (): React.ReactElement => {
   return (
-    <div>
+    <>
       <NavBar />
       <Box sx={{ flexGrow: 1 }}>
+        <Grid container justifyContent={'center'} margin={2}>
           <Outlet />
+        </Grid>
       </Box>
-    </div>
-  )
-}
-
-const Home = (): React.ReactElement => {
-  return (
-    <div>
-      <h2>Home</h2>
-    </div>
+    </>
   )
 }
 
 export const NoMatch = (): React.ReactElement => {
   return (
-    <div>
-      <h2>Nothing to see here!</h2>
+    <>
+      <h2>Página não encontrada</h2>
       <p>
-        <Link to='/'>Go to the home page</Link>
+        <Link to='/'>Volte para a Home</Link>
       </p>
-    </div>
+    </>
   )
 }
 
