@@ -5,7 +5,13 @@ Front-end e Backend responsável pela gestão de Cartões de Crédito. Teste té
 ## Requisitos
 [Docker](https://www.docker.com/get-started/)
 
-## Docker
+## Acesso Online
+
+[Frontend](http://31.220.62.96:8000/)
+
+[Api](http://31.220.62.96:8008/docs)
+
+## Utilizando Docker
 
 Utilize [Docker](https://www.docker.com/get-started/) para rodar as aplicações. Execute os comandos abaixo na pasta root.
 
@@ -13,14 +19,14 @@ Utilize [Docker](https://www.docker.com/get-started/) para rodar as aplicações
 
 `$ docker-compose up`
 
-## Frontend
+### Frontend
 
 Desenvolvido em [React](https://www.typescriptlang.org/pt/docs/handbook/react.html) e [Typescript](https://www.typescriptlang.org/)
 
 Acesso em [http://localhost:8000](http://localhost:8000)
 
 
-## Backend (api)
+### Backend (api)
 
 Desenvolvido em Python, utilizando o framework [FastApi](https://fastapi.tiangolo.com/)
 
@@ -37,3 +43,36 @@ Start docker with commnad:
 And run test with command:
 
 `$ docker-compose exec api pytest --cov=src .`
+
+
+## Rodando localmente
+
+Obs: Não recomendado.
+### Requisitos
+
+- Python 3.11
+- MongoDB 4.0.8
+- NodeJS > 18
+
+### Frontend
+
+Acesse a pasta "frontend"
+
+`$ npm install`
+
+`$ npm start`
+
+Acesso em [http://localhost:3003](http://localhost:3003)
+
+### Api
+
+Acesse a pasta "Api"
+
+`$ pip install --no-cache-dir -r requirements.txt`
+
+`$ python src/main.py`
+
+
+#### Desenvolvido por
+
+Vanessa Souto
