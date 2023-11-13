@@ -13,6 +13,17 @@ class CreditCardRequestSerializer(BaseModel):
     cvv: str = Field(...)
     brand: Optional[str] = Field(None)
 
+    class ConfigDict:
+        json_schema_extra = {
+            'example': {
+                'exp_date': '12/2023',
+                'holder': 'Armindo Juvenal Soares',
+                'number': '4111111111111111',
+                'cvv': '100',
+                'brand': 'visa'
+            }
+        }
+
     @field_validator('number')
     def number(cls, value):
         creditcardsSaved = CreditCard.objects()
