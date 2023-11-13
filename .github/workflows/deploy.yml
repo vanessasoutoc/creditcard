@@ -35,5 +35,5 @@ jobs:
         password: ${{ secrets.REMOTE_KEY_PASS }}
         port: 22
         script: |
-          cd /docker-images/api-juspush && \
+          cd /docker-images/credit-card && \
           docker-compose up --build -d
