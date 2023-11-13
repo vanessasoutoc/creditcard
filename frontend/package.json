@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "PORT=3003 react-scripts start",
+    "prod": "env-cmd -f .env.production npm start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:coverage": "CI=true react-scripts test --coverage --forceExit --detectOpenHandles",
@@ -23,6 +24,7 @@
     "@types/node": "^16.18.61",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
+    "env-cmd": "^10.1.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",

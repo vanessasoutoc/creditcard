@@ -14,4 +14,4 @@ EXPOSE 8000
 EXPOSE 35729
 
 ENTRYPOINT ["/bin/sh", "/app/run.sh"]
-CMD ["start"]
+CMD ["run", "prod"]
