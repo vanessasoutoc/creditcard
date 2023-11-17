@@ -1,9 +1,10 @@
 name: Tests api python
 
 on:
+  push:
+    branches: [ main ]
   pull_request:
-    branches:
-    - main
+    branches: [ main ]
 
 jobs:
   test_api:
@@ -27,4 +28,4 @@ jobs:
           - PYTHONPATH=/
           - MONGO_DB=mongodb://creditcard:creditcard@localhost:27017
         run: |
-          pytest
+          pytest --cov=src .

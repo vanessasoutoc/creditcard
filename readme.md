@@ -7,6 +7,8 @@ Front-end e Backend responsável pela gestão de Cartões de Crédito. Teste té
 
 ## Acesso Online
 
+Deploy realizado via GitHub Actions.
+
 [Frontend](http://31.220.62.96:8000/)
 
 [Api](http://31.220.62.96:8008/docs)
