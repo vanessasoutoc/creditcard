@@ -25,7 +25,7 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r api/requirements.txt; fi
       - name: Unit Testing with pytest
         env:
-          - PYTHONPATH=/
-          - MONGO_DB=mongodb://creditcard:creditcard@localhost:27017
+          PYTHONPATH: /
+          MONGO_DB: mongodb://creditcard:creditcard@localhost:27017
         run: |
           pytest --cov=src .
