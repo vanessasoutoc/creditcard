@@ -28,4 +28,5 @@ jobs:
           PYTHONPATH: /
           MONGO_DB: mongodb://creditcard:creditcard@localhost:27017
         run: |
+          pip install pytest
           pytest --cov=src .
